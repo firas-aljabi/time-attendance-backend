@@ -1,0 +1,1391 @@
+name: Requests
+description: ''
+endpoints:
+  -
+    httpMethods:
+      - POST
+    uri: api/add_vacation_request
+    metadata:
+      groupName: Requests
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Add Vacation Request'
+      description: 'This endpoint is used to add a vacation request. Employee can access this API Once A Day.'
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: multipart/form-data
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      reason:
+        name: reason
+        description: 'The reason for the vacation request Custom'
+        required: true
+        example: 'death of a lover.'
+        type: string
+        enumValues: []
+        custom: []
+      start_date:
+        name: start_date
+        description: 'The end date of the vacation request Custom'
+        required: true
+        example: '2023-08-27'
+        type: date
+        enumValues: []
+        custom: []
+      end_date:
+        name: end_date
+        description: 'The end date of the vacation request Custom'
+        required: true
+        example: '2023-08-27'
+        type: date
+        enumValues: []
+        custom: []
+      vacation_type:
+        name: vacation_type
+        description: |-
+          . Must be one of the following values:
+          - `1`: HOURLY.
+          - `2`: DAILY.
+          - `3`: DEATH.
+          - `4`: SATISFYING.
+          - `5`: PILGRIMAME.
+          - `6`: NEW_BABY.
+          - `7`: EXAM.
+          - `8`: PREGNANT_WOMAN.
+          - `9`: METERNITY.
+          - `10`: SICK_CHILD
+          - `11`: MARRIED
+        required: true
+        example: 18
+        type: integer
+        enumValues: []
+        custom: []
+      start_time:
+        name: start_time
+        description: 'required_if vacation type equal 1 The start time of the vacation request in the format `HH:MM:SS` Custom'
+        required: true
+        example: '09:00:00.'
+        type: time
+        enumValues: []
+        custom: []
+      end_time:
+        name: end_time
+        description: 'required_if vacation type equal 1 The end time of the vacation request in the format `HH:MM:SS` Custom'
+        required: true
+        example: '15:30:00.'
+        type: time
+        enumValues: []
+        custom: []
+      payment_type:
+        name: payment_type
+        description: |-
+          The payment type of the vacation request. Must be one of the following values:
+          - `1`: payment.
+          - `2`: unpayment. Custom
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        custom: []
+      person:
+        name: person
+        description: |-
+          required_if vacation_type equal 4. Must be one of the following values:
+          - `1`: FATHER.
+          - `2`: MOTHER.
+          - `3`: SISTER.
+          - `4`: PROTHER.
+          - `5`: SON.
+          - `6`: DAUGHTER.
+          - `7`: HUSBAND.
+          - `8`: ME.
+          - `9`: GRAND_FATHER.
+          - `10`: GRAND_MOTHER
+          - `11`: UNCLE.
+          - `12`: AUNT.
+          - `13`: MATERNAL_UNCLE.
+          - `14`: MATERNAL_AUNT. Custom
+        required: false
+        example: 5
+        type: integer
+        enumValues: []
+        custom: []
+      dead_person:
+        name: dead_person
+        description: |-
+          required_if vacation_type equal 3 (death). Must be one of the following values:
+          - `1`: FATHER.
+          - `2`: MOTHER.
+          - `3`: SISTER.
+          - `4`: PROTHER.
+          - `5`: SON.
+          - `6`: DAUGHTER.
+          - `7`: HUSBAND.
+          - `8`: ME.
+          - `9`: GRAND_FATHER.
+          - `10`: GRAND_MOTHER
+          - `11`: UNCLE.
+          - `12`: AUNT.
+          - `13`: MATERNAL_UNCLE.
+          - `14`: MATERNAL_AUNT. Custom
+        required: false
+        example: 5
+        type: integer
+        enumValues: []
+        custom: []
+      degree_of_kinship:
+        name: degree_of_kinship
+        description: |-
+          required_if vacation_type equal 3 (death). Must be one of the following values:
+          - `1`: FIRST.
+          - `2`: SECOND. Custom
+        required: false
+        example: 2
+        type: integer
+        enumValues: []
+        custom: []
+      attachments:
+        name: attachments
+        description: 'Must not be greater than 5120 kilobytes'
+        required: false
+        example: null
+        type: file
+        enumValues: []
+        custom: []
+    cleanBodyParameters:
+      reason: 'death of a lover.'
+      start_date: '2023-08-27'
+      end_date: '2023-08-27'
+      vacation_type: 18
+      start_time: '09:00:00.'
+      end_time: '15:30:00.'
+      payment_type: 1
+      person: 5
+      dead_person: 5
+      degree_of_kinship: 2
+    fileParameters:
+      attachments: null
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+            "data": {
+               "id": 1,
+               "type": 1,
+               "status": 3,
+               "reason": "death of a lover",
+               "start_time": "05:00:00",
+               "end_time": "07:00:00",
+               "start_date": "2023-06-19",
+               "end_date": "2023-06-19",
+               "payment_type": 1,
+               "vacation_type": 1,
+               "person": null,
+               "dead_person": null,
+               "degree_of_kinship": null,
+               "created_at": "1 second ago",
+               "user": {
+                   "id": 3,
+                   "name": "mouaz alkhateeb",
+                   "email": "mouaz@gmail.com",
+                   "image": "http://127.0.0.1:8000/employees/2023-08-27-Employee-8.jpg",
+                   "position": "Backend Developer"
+               }
+            }
+          OR
+            "data": {
+               "id": 1,
+               "type": 1,
+               "status": 3,
+               "reason": "death of a lover",
+               "start_time": null,
+               "end_time": null,
+               "start_date": "2023-06-19",
+               "end_date": "2023-06-25",
+               "payment_type": 1,
+               "vacation_type": 4,
+               "person": 5,
+               "dead_person": null,
+               "degree_of_kinship": null,
+               "created_at": "1 second ago",
+               "user": {
+                   "id": 3,
+                   "name": "mouaz alkhateeb",
+                   "email": "mouaz@gmail.com",
+                   "image": "http://127.0.0.1:8000/employees/2023-08-27-Employee-8.jpg",
+                   "position": "Backend Developer"
+               }
+            }
+          OR
+            "data": {
+               "id": 1,
+               "type": 1,
+               "status": 3,
+               "reason": "death of a lover",
+               "start_time": null,
+               "end_time": null,
+               "start_date": "2023-06-19",
+               "end_date": "2023-06-25",
+               "payment_type": 1,
+               "vacation_type": 4,
+               "person": null,
+               "dead_person": 11,
+               "degree_of_kinship": 2,
+               "created_at": "1 minute ago",
+               "user": {
+                   "id": 3,
+                   "name": "mouaz alkhateeb",
+                   "email": "mouaz@gmail.com",
+                   "image": "http://127.0.0.1:8000/employees/2023-08-27-Employee-8.jpg",
+                   "position": "Backend Developer"
+               }
+            }
+          }
+        headers: []
+        description: 'Add Vacation Request'
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/add_justify_request
+    metadata:
+      groupName: Requests
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Add Justify Request'
+      description: 'This endpoint is used to add a Justify request. Employee can access this API Once A Day.'
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: multipart/form-data
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      reason:
+        name: reason
+        description: 'The reason for the justify request Custom'
+        required: true
+        example: 'death of a lover.'
+        type: string
+        enumValues: []
+        custom: []
+      date:
+        name: date
+        description: 'The date of the justify request Custom'
+        required: false
+        example: '2023-08-27'
+        type: date
+        enumValues: []
+        custom: []
+      start_date:
+        name: start_date
+        description: 'The end date of the justify request Custom'
+        required: false
+        example: '2023-08-27'
+        type: date
+        enumValues: []
+        custom: []
+      end_date:
+        name: end_date
+        description: 'The end date of the justify request Custom'
+        required: false
+        example: '2023-08-27'
+        type: date
+        enumValues: []
+        custom: []
+      justify_type:
+        name: justify_type
+        description: |-
+          The justify type of the justify request. Must be one of the following values:
+          - `1`: ILLNESS.
+          - `2`: TRAVEL.
+          - `3`: OTHERS. Custom
+        required: true
+        example: 2
+        type: integer
+        enumValues: []
+        custom: []
+      attachments:
+        name: attachments
+        description: 'Must not be greater than 5120 kilobytes'
+        required: false
+        example: null
+        type: file
+        enumValues: []
+        custom: []
+    cleanBodyParameters:
+      reason: 'death of a lover.'
+      date: '2023-08-27'
+      start_date: '2023-08-27'
+      end_date: '2023-08-27'
+      justify_type: 2
+    fileParameters:
+      attachments: null
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+            "data": {
+               "id": 2,
+               "type": 2,
+               "status": 3,
+               "justify_type": 1,
+               "reason": "this is the reason",
+               "date": "2023-06-22",
+               "attachments": null,
+               "user": {
+                   "id": 3,
+                   "name": "mouaz alkhateeb",
+                   "email": "mouaz@gmail.com",
+                   "image": "http://127.0.0.1:8000/employees/2023-08-27-Employee-8.jpg",
+                   "position": "Backend Developer"
+               }
+            }
+          }
+        headers: []
+        description: 'Add Justify Request'
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/add_retirement_request
+    metadata:
+      groupName: Requests
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Add Retirement Request'
+      description: 'This endpoint is used to add a retirement request. Employee can access this API Once A Day.'
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: multipart/form-data
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      reason:
+        name: reason
+        description: 'The reason for the retirement request Custom'
+        required: true
+        example: 'death of a lover.'
+        type: string
+        enumValues: []
+        custom: []
+      attachments:
+        name: attachments
+        description: 'Must not be greater than 5120 kilobytes'
+        required: false
+        example: null
+        type: file
+        enumValues: []
+        custom: []
+    cleanBodyParameters:
+      reason: 'death of a lover.'
+    fileParameters:
+      attachments: null
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+            "data": {
+               "id": 3,
+               "type": 3,
+               "date": "2023-08-28",
+               "status": 3,
+               "reason": "this is the reason for retirement request",
+               "user": {
+                   "id": 3,
+                   "name": "mouaz alkhateeb",
+                   "email": "mouaz@gmail.com",
+                   "image": "http://127.0.0.1:8000/employees/2023-08-27-Employee-8.jpg",
+                   "position": "Backend Developer"
+               },
+                "attachments": null,
+            }
+          }
+        headers: []
+        description: 'Add Retirement Request'
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/add_resignation_request
+    metadata:
+      groupName: Requests
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Add Resignation Request'
+      description: 'This endpoint is used to add a resignation request. Employee can access this API Once A Day.'
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: multipart/form-data
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      reason:
+        name: reason
+        description: 'The reason for the resignation request Custom'
+        required: true
+        example: 'death of a lover.'
+        type: string
+        enumValues: []
+        custom: []
+      attachments:
+        name: attachments
+        description: 'Must not be greater than 5120 kilobytes'
+        required: false
+        example: null
+        type: file
+        enumValues: []
+        custom: []
+    cleanBodyParameters:
+      reason: 'death of a lover.'
+    fileParameters:
+      attachments: null
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+            "data": {
+               "id": 3,
+               "type": 4,
+               "date": "2023-08-28",
+               "status": 3,
+               "reason": "this is the reason for resignation request",
+               "user": {
+                   "id": 3,
+                   "name": "mouaz alkhateeb",
+                   "email": "mouaz@gmail.com",
+                   "image": "http://127.0.0.1:8000/employees/2023-08-27-Employee-8.jpg",
+                   "position": "Backend Developer"
+               },
+                "attachments": null,
+            }
+          }
+        headers: []
+        description: 'Add Resignation Request'
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/request/{id}'
+    metadata:
+      groupName: Requests
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Get Request'
+      description: 'This endpoint is used to Get Request in Company and Admin Or Hr Can Access To This Api.'
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'Must Be Exists In requests Table'
+        required: true
+        example: 15
+        type: integer
+        enumValues: []
+        custom: []
+    cleanUrlParameters:
+      id: 15
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 201
+        content: |-
+          {
+            "data": {
+               "id": 3,
+               "type": 4,
+               "date": "2023-08-28",
+               "status": 3,
+               "reason": "this is the reason for resignation request",
+               "user": {
+                   "id": 3,
+                   "name": "mouaz alkhateeb",
+                   "email": "mouaz@gmail.com",
+                   "image": "http://127.0.0.1:8000/employees/2023-08-27-Employee-8.jpg",
+                   "position": "Backend Developer"
+               },
+                "attachments": null,
+            },
+          Or
+            "data": {
+               "id": 2,
+               "type": 2,
+               "status": 3,
+               "justify_type": 1,
+               "reason": "this is the reason",
+               "date": "2023-06-22",
+               "attachments": null,
+               "user": {
+                   "id": 3,
+                   "name": "mouaz alkhateeb",
+                   "email": "mouaz@gmail.com",
+                   "image": "http://127.0.0.1:8000/employees/2023-08-27-Employee-8.jpg",
+                   "position": "Backend Developer"
+               }
+            }
+          Or
+            "data": {
+               "id": 1,
+               "type": 1,
+               "status": 3,
+               "reason": "death of a lover",
+               "start_time": "05:00:00",
+               "end_time": "07:00:00",
+               "start_date": "2023-06-19",
+               "end_date": "2023-06-19",
+               "payment_type": 1,
+               "vacation_type": 1,
+               "user": {
+                   "id": 3,
+                   "name": "mouaz alkhateeb",
+                   "email": "mouaz@gmail.com",
+                   "image": "http://127.0.0.1:8000/employees/2023-08-27-Employee-8.jpg",
+                   "position": "Backend Developer"
+               }
+            }
+          }
+        headers: []
+        description: 'Get Request'
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - PUT
+    uri: 'api/approve_request/{id}'
+    metadata:
+      groupName: Requests
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Approve Request'
+      description: 'This endpoint is used to approve a request in the company. Admin or HR can access this API. The status will be set to 1, where number 1 refers to approved,number 2 refers to rejected, and number 3 refers to pending status.'
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'Must Be Exists In requests Table'
+        required: true
+        example: 15
+        type: integer
+        enumValues: []
+        custom: []
+    cleanUrlParameters:
+      id: 15
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 201
+        content: |-
+          {
+            "data": {
+               "id": 3,
+               "type": 4,
+               "date": "2023-08-28",
+               "status": 1,
+               "reason": "this is the reason for resignation request",
+               "user": {
+                   "id": 3,
+                   "name": "mouaz alkhateeb",
+                   "email": "mouaz@gmail.com",
+                   "image": "http://127.0.0.1:8000/employees/2023-08-27-Employee-8.jpg",
+                   "position": "Backend Developer"
+               },
+                "attachments": null,
+            },
+          Or
+            "data": {
+               "id": 2,
+               "type": 2,
+               "status": 1,
+               "justify_type": 1,
+               "reason": "this is the reason",
+               "date": "2023-06-22",
+               "attachments": null,
+               "user": {
+                   "id": 3,
+                   "name": "mouaz alkhateeb",
+                   "email": "mouaz@gmail.com",
+                   "image": "http://127.0.0.1:8000/employees/2023-08-27-Employee-8.jpg",
+                   "position": "Backend Developer"
+               }
+            }
+          Or
+            "data": {
+               "id": 1,
+               "type": 1,
+               "status": 1,
+               "reason": "death of a lover",
+               "start_time": "05:00:00",
+               "end_time": "07:00:00",
+               "start_date": "2023-06-19",
+               "end_date": "2023-06-19",
+               "payment_type": 1,
+               "vacation_type": 1,
+               "user": {
+                   "id": 3,
+                   "name": "mouaz alkhateeb",
+                   "email": "mouaz@gmail.com",
+                   "image": "http://127.0.0.1:8000/employees/2023-08-27-Employee-8.jpg",
+                   "position": "Backend Developer"
+               }
+            }
+          }
+        headers: []
+        description: 'Approve Request'
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/reject_request
+    metadata:
+      groupName: Requests
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Rjected Request'
+      description: 'This endpoint is used to rjected a request in the company. Admin or HR can access this API. The status will be set to 1, where number 1 refers to approved,number 2 refers to rejected, and number 3 refers to pending status.'
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      request_id:
+        name: request_id
+        description: 'Must Be Exists In requests Table'
+        required: true
+        example: 20
+        type: integer
+        enumValues: []
+        custom: []
+      reject_reason:
+        name: reject_reason
+        description: 'The reject reason for the request Custom'
+        required: true
+        example: 'Without Any Reason.'
+        type: string
+        enumValues: []
+        custom: []
+    cleanBodyParameters:
+      request_id: 20
+      reject_reason: 'Without Any Reason.'
+    fileParameters: []
+    responses:
+      -
+        status: 201
+        content: |-
+          {
+            "data": {
+               "id": 3,
+               "type": 4,
+               "date": "2023-08-28",
+               "status": 2,
+               "reason": "this is the reason for resignation request",
+               "reject_reason": "Without Any Reason",
+               "user": {
+                   "id": 3,
+                   "name": "mouaz alkhateeb",
+                   "email": "mouaz@gmail.com",
+                   "image": "http://127.0.0.1:8000/employees/2023-08-27-Employee-8.jpg",
+                   "position": "Backend Developer"
+               },
+                "attachments": null,
+            },
+          Or
+            "data": {
+               "id": 2,
+               "type": 2,
+               "status": 2,
+               "justify_type": 1,
+               "reason": "this is the reason",
+               "reject_reason": "Without Any Reason",
+               "date": "2023-06-22",
+               "attachments": null,
+               "user": {
+                   "id": 3,
+                   "name": "mouaz alkhateeb",
+                   "email": "mouaz@gmail.com",
+                   "image": "http://127.0.0.1:8000/employees/2023-08-27-Employee-8.jpg",
+                   "position": "Backend Developer"
+               }
+            }
+          Or
+            "data": {
+               "id": 1,
+               "type": 1,
+               "status": 2,
+               "reason": "death of a lover",
+               "reject_reason": "Without Any Reason",
+               "start_time": "05:00:00",
+               "end_time": "07:00:00",
+               "start_date": "2023-06-19",
+               "end_date": "2023-06-19",
+               "payment_type": 1,
+               "vacation_type": 1,
+               "user": {
+                   "id": 3,
+                   "name": "mouaz alkhateeb",
+                   "email": "mouaz@gmail.com",
+                   "image": "http://127.0.0.1:8000/employees/2023-08-27-Employee-8.jpg",
+                   "position": "Backend Developer"
+               }
+            }
+          }
+        headers: []
+        description: 'Rjected Request'
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: api/my_requests
+    metadata:
+      groupName: Requests
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Show My Requests List'
+      description: 'This endpoint displays a list of requests specific to the authenticated employee.'
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters:
+      type:
+        name: type
+        description: 'optional Filter the requests by type. Possible values: 1 (approved), 2 (rejected), 3 (pending).'
+        required: false
+        example: 17
+        type: integer
+        enumValues: []
+        custom: []
+    cleanQueryParameters:
+      type: 17
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+              "data": [
+                  {
+                      "id": 3,
+                      "type": 3,
+                      "date": "2023-08-28",
+                      "status": 3,
+                      "reason": "no reason",
+                      "attachments": null
+                  },
+                  {
+                      "id": 2,
+                      "type": 2,
+                      "status": 3,
+                      "justify_type": 1,
+                      "reason": "this is the reason",
+                      "date": "2023-06-22",
+                      "attachments": null
+                  },
+                  {
+                      "id": 1,
+                      "type": 1,
+                      "status": 3,
+                      "reason": "death of a lover",
+                      "start_time": "05:00:00",
+                      "end_time": "07:00:00",
+                      "start_date": "2023-06-19",
+                      "end_date": "2023-06-19",
+                      "payment_type": 1,
+                      "vacation_type": 1
+                  }
+              ]
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: api/my_approved_vacations_requests
+    metadata:
+      groupName: Requests
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Show My Vacation Requests List'
+      description: 'This endpoint displays a list of Approved Vacation requests specific to the authenticated employee.'
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+              "data": [
+                  {
+                      "id": 1,
+                      "type": 1,
+                      "status": 1,
+                      "reason": "death of a lover",
+                      "start_time": "05:00:00",
+                      "end_time": "07:00:00",
+                      "start_date": "2023-06-19",
+                      "end_date": "2023-06-19",
+                      "payment_type": 1,
+                      "vacation_type": 1
+                  }
+                  {
+                      "id": 2,
+                      "type": 1,
+                      "status": 1,
+                      "reason": "death of a lover",
+                      "start_time": "05:00:00",
+                      "end_time": "07:00:00",
+                      "start_date": "2023-06-19",
+                      "end_date": "2023-06-19",
+                      "payment_type": 1,
+                      "vacation_type": 1
+                  }
+              ]
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: api/vacation_requests
+    metadata:
+      groupName: Requests
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'List Of Vacation Requests'
+      description: 'This endpoint is used to display a list of vacation requests Where status equal 3 (pending) in the company. Only admins or HR personnel can access this API.'
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+              "data": [
+                  {
+                      "id": 1,
+                      "type": 1,
+                      "status": 3,
+                      "reason": "death of a lover",
+                      "start_time": "05:00:00",
+                      "end_time": "07:00:00",
+                      "start_date": "2023-06-19",
+                      "end_date": "2023-06-19",
+                      "payment_type": 1,
+                      "vacation_type": 1,
+                      "user": {
+                          "id": 3,
+                          "name": "mouaz alkhateeb",
+                          "email": "mouaz@gmail.com",
+                          "image": "http://127.0.0.1:8000/employees/2023-08-27-Employee-8.jpg",
+                          "position": null
+                      }
+                  }
+              ]
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: api/justify_requests
+    metadata:
+      groupName: Requests
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'List Of Justify Requests'
+      description: 'This endpoint is used to display a list of Justify requests in the company. Only admins or HR personnel can access this API.'
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+              "data": [
+                  {
+                      "id": 2,
+                      "type": 2,
+                      "status": 3,
+                      "justify_type": 1,
+                      "reason": "this is the reason",
+                      "date": "2023-06-22",
+                      "attachments": null,
+                      "user": {
+                          "id": 3,
+                          "name": "mouaz alkhateeb",
+                          "email": "mouaz@gmail.com",
+                          "image": "http://127.0.0.1:8000/employees/2023-08-27-Employee-8.jpg",
+                          "position": null
+                      }
+                  }
+              ]
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: api/retirement_requests
+    metadata:
+      groupName: Requests
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'List Of Retirement Requests'
+      description: 'This endpoint is used to display a list of Retirement requests in the company. Only admins or HR personnel can access this API.'
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+              "data": [
+                  {
+                      "id": 3,
+                      "type": 3,
+                      "date": "2023-08-28",
+                      "status": 3,
+                      "reason": "no reason",
+                      "user": {
+                          "id": 3,
+                          "name": "mouaz alkhateeb",
+                          "email": "mouaz@gmail.com",
+                          "image": "http://127.0.0.1:8000/employees/2023-08-27-Employee-8.jpg",
+                          "position": null
+                      },
+                      "attachments": null,
+                  }
+              ]
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: api/resignation_requests
+    metadata:
+      groupName: Requests
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'List Of Resignation Requests'
+      description: 'This endpoint is used to display a list of Resignation requests in the company. Only admins or HR personnel can access this API.'
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+              "data": [
+                  {
+                      "id": 4,
+                      "type": 4,
+                      "date": "2023-08-28",
+                      "status": 3,
+                      "reason": "no reason",
+                      "user": {
+                          "id": 3,
+                          "name": "mouaz alkhateeb",
+                          "email": "mouaz@gmail.com",
+                          "image": "http://127.0.0.1:8000/employees/2023-08-27-Employee-8.jpg",
+                          "position": null
+                      },
+                      "attachments": null,
+                  }
+              ]
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: api/my_monthly_shift
+    metadata:
+      groupName: Requests
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'My Monthly Shift'
+      description: 'This endpoint displays the monthly shift specific to the authenticated employee.'
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters:
+      duration:
+        name: duration
+        description: 'optional Filter the Monthly Shifts by duration. Possible values: 1 (only day absences), 2 (several days absences).'
+        required: false
+        example: 20
+        type: integer
+        enumValues: []
+        custom: []
+    cleanQueryParameters:
+      duration: 20
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+              "data": [
+                  {
+                      "id": 1,
+                      "date": "2023-08-28",
+                      "status": 1
+                  },
+                  {
+                      "id": 2,
+                      "date": "2023-08-29",
+                      "status": 1
+                  },
+                  {
+                      "id": 3,
+                      "date": "2023-08-30",
+                      "status": 0,
+                      "relatedAbsent": [
+                          {
+                              "id": 3,
+                              "date": "2023-08-30",
+                              "status": 0
+                          }
+                      ]
+                  }
+              ]
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: api/all_requests
+    metadata:
+      groupName: Requests
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Display All Request In Admin Dashboard'
+      description: 'This endpoint displays all requests in the admin dashboard, including vacation requests, justification requests, retirement requests, resignation requests, and clearance requests. Each object in the response includes a "type_of_request" flag that indicates the type of request. The "type_of_request" flag can have the following values: "Request"  or "Clearance Request".'
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+          "data": [
+            {
+               "id": 1,
+               "type_of_request": "Request",
+               "type": 1,
+               "status": 3,
+               "reason": "death of a lover",
+               "start_time": "05:00:00",
+               "end_time": "07:00:00",
+               "start_date": "2023-06-19",
+               "end_date": "2023-06-19",
+               "payment_type": 1,
+               "vacation_type": 1,
+               "user": {
+                   "id": 3,
+                   "name": "mouaz alkhateeb",
+                   "email": null,
+                   "image": "http://127.0.0.1:8000/employees/2023-08-29-Employee-8.jpg",
+                   "position": null
+                }
+            },
+            {
+               "id": 2,
+               "type_of_request": "Request",
+               "type": 2,
+               "status": 3,
+               "justify_type": 1,
+               "reason": "this is the reason",
+               "date": "2023-06-22",
+               "attachments": null,
+               "user": {
+                   "id": 3,
+                   "name": "mouaz alkhateeb",
+                   "email": null,
+                   "image": "http://127.0.0.1:8000/employees/2023-08-29-Employee-8.jpg",
+                   "position": null
+                 }
+             },
+             {
+               "id": 3,
+               "type_of_request": "Request",
+               "type": 3,
+               "date": "2023-08-29",
+               "status": 3,
+               "reason": "no reason",
+               "user": {
+                   "id": 3,
+                   "name": "mouaz alkhateeb",
+                   "email": null,
+                   "image": "http://127.0.0.1:8000/employees/2023-08-29-Employee-8.jpg",
+                   "position": null
+                },
+               "attachments": null
+            },
+            {
+               "id": 4,
+               "type_of_request": "Request",
+               "type": 4,
+               "date": "2023-08-29",
+               "status": 3,
+               "reason": "no reason",
+               "user": {
+                   "id": 3,
+                   "name": "mouaz alkhateeb",
+                   "email": null,
+                   "image": "http://127.0.0.1:8000/employees/2023-08-29-Employee-8.jpg",
+                   "position": null
+                 },
+               "attachments": null
+             },
+             {
+               "id": 1,
+               "type_of_request": "Clearance Request",
+               "type": 1,
+               "status": 1,
+               "extra_status": 4,
+               "car_number": "0101",
+               "car_model": "bmw3",
+               "manufacturing_year": "2023",
+               "mechanic_card_number": "2348",
+               "car_image": "http://127.0.0.1:8000/employees_deposits/2023-08-29-EmployeeDeposit-359.jpg",
+               "reason_reject": null,
+               "reason_clearance_reject": null,
+               "deposit_request_date": "2023-08-29",
+               "clearance_request_date": null,
+               "user": {
+                   "id": 3,
+                   "name": "mouaz alkhateeb",
+                   "image": "http://127.0.0.1:8000/employees/2023-08-29-Employee-8.jpg",
+                   "position": null
+                 }
+             }
+            ]
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []

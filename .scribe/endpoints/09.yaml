@@ -1,0 +1,926 @@
+name: Deposits
+description: ''
+endpoints:
+  -
+    httpMethods:
+      - POST
+    uri: api/craete_deposit
+    metadata:
+      groupName: Deposits
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Add Deposit'
+      description: 'This endpoint is used to add a deposit for an employee. Only admins or HR personnel can access this API.'
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: multipart/form-data
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      type:
+        name: type
+        description: |-
+          The deposit type. Must be one of the following values:
+          - `1`: CAR.
+          - `2`: LAPTOP.
+          - `3`: MOBILE.
+          Custom
+        required: true
+        example: 2
+        type: integer
+        enumValues: []
+        custom: []
+      car_number:
+        name: car_number
+        description: |-
+          The car number. This field is required if the deposit type is 1 (car).
+          Custom
+        required: false
+        example: 1021.0
+        type: number
+        enumValues: []
+        custom: []
+      car_model:
+        name: car_model
+        description: |-
+          The car model. This field is required if the deposit type is 1 (car).
+          Custom
+        required: false
+        example: bmw.
+        type: string
+        enumValues: []
+        custom: []
+      user_id:
+        name: user_id
+        description: 'The ID of the user. Must exist in the users table.'
+        required: true
+        example: 9
+        type: integer
+        enumValues: []
+        custom: []
+      manufacturing_year:
+        name: manufacturing_year
+        description: |-
+          The manufacturing year of the car. This field is required if the deposit type is 1 (car).
+          Custom
+        required: false
+        example: 2010.0
+        type: number
+        enumValues: []
+        custom: []
+      Mechanic_card_number:
+        name: Mechanic_card_number
+        description: |-
+          The mechanic card number of the car. This field is required if the deposit type is 1 (car).
+          Custom
+        required: false
+        example: 200054.0
+        type: number
+        enumValues: []
+        custom: []
+      car_image:
+        name: car_image
+        description: 'The car image. This field is required if the deposit type is 1 (car). Must not be greater than 5120 kilobytes.'
+        required: false
+        example: null
+        type: file
+        enumValues: []
+        custom: []
+      laptop_type:
+        name: laptop_type
+        description: |-
+          The laptop type. This field is required if the deposit type is 2 (laptop).
+          Custom
+        required: false
+        example: Asus.
+        type: string
+        enumValues: []
+        custom: []
+      serial_laptop_number:
+        name: serial_laptop_number
+        description: |-
+          The serial number of the laptop. This field is required if the deposit type is 2 (laptop).
+          Custom
+        required: false
+        example: 1100.0
+        type: number
+        enumValues: []
+        custom: []
+      laptop_color:
+        name: laptop_color
+        description: |-
+          The color of the laptop. This field is required if the deposit type is 2 (laptop).
+          Custom
+        required: false
+        example: red.
+        type: string
+        enumValues: []
+        custom: []
+      laptop_image:
+        name: laptop_image
+        description: 'The laptop image. This field is required if the deposit type is 2 (laptop). Must not be greater than 5120 kilobytes.'
+        required: false
+        example: null
+        type: file
+        enumValues: []
+        custom: []
+      serial_mobile_number:
+        name: serial_mobile_number
+        description: |-
+          The serial number of the mobile. This field is required if the deposit type is 3 (mobile).
+          Custom
+        required: false
+        example: 1021.0
+        type: number
+        enumValues: []
+        custom: []
+      mobile_color:
+        name: mobile_color
+        description: |-
+          The color of the mobile. This field is required if the deposit type is 3 (mobile).
+          Custom
+        required: false
+        example: blue.
+        type: string
+        enumValues: []
+        custom: []
+      mobile_image:
+        name: mobile_image
+        description: 'The mobile image. This field is required if the deposit type is 3 (mobile). Must not be greater than 5120 kilobytes.'
+        required: false
+        example: null
+        type: file
+        enumValues: []
+        custom: []
+      mobile_type:
+        name: mobile_type
+        description: |-
+          The type of the mobile. This field is required if the deposit type is 3 (mobile).
+          Custom
+        required: false
+        example: samsung.
+        type: string
+        enumValues: []
+        custom: []
+      mobile_sim:
+        name: mobile_sim
+        description: |-
+          The SIM number of the mobile. This field is required if the deposit type is 3 (mobile).
+          Custom
+        required: false
+        example: 56252.0
+        type: number
+        enumValues: []
+        custom: []
+    cleanBodyParameters:
+      type: 2
+      car_number: 1021.0
+      car_model: bmw.
+      user_id: 9
+      manufacturing_year: 2010.0
+      Mechanic_card_number: 200054.0
+      laptop_type: Asus.
+      serial_laptop_number: 1100.0
+      laptop_color: red.
+      serial_mobile_number: 1021.0
+      mobile_color: blue.
+      mobile_type: samsung.
+      mobile_sim: 56252.0
+    fileParameters:
+      car_image: null
+      laptop_image: null
+      mobile_image: null
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+              "data": {
+                  "id": 6,
+                  "type": 3,
+                  "status": 3,
+                  "extra_status": null,
+                  "serial_mobile_number": 125815,
+                  "mobile_color": "red",
+                  "mobile_type": "samsung",
+                  "mobile_sim": 5422,
+                  "mobile_image": "http://127.0.0.1:8000/employees_deposits/2023-08-28-EmployeeDeposit-310.jpg",
+                  "reason_reject": null,
+                  "reason_clearance_reject": null,
+                  "deposit_request_date": "2023-08-28",
+                  "clearance_request_date": null,
+                  "user": {
+                      "id": 3,
+                      "name": "mouaz alkhateeb",
+                      "image": "http://127.0.0.http://127.0.0http://127.0"
+                      "position": null
+                  }
+              }
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - PUT
+    uri: 'api/approve_deposit/{id}'
+    metadata:
+      groupName: Deposits
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Approve Deposit'
+      description: |-
+        This endpoint is used to approve a deposit. Employees can access this API to accept their deposits. The status will be set to 1, where:
+        - `1`: approved.
+        - `2`: rejected.
+        - `3`: pending status.
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the deposit. Must exist in the deposits table.'
+        required: true
+        example: 18
+        type: integer
+        enumValues: []
+        custom: []
+    cleanUrlParameters:
+      id: 18
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+              "data": {
+                  "id": 6,
+                  "type": 3,
+                  "status": 1,
+                  "extra_status": null,
+                  "serial_mobile_number": 125815,
+                  "mobile_color": "red",
+                  "mobile_type": "samsung",
+                  "mobile_sim": 5422,
+                  "mobile_image": "http://127.0.0.1:8000/employees_deposits/2023-08-28-EmployeeDeposit-310.jpg",
+                  "reason_reject": null,
+                  "reason_clearance_reject": null,
+                  "deposit_request_date": "2023-08-28",
+                  "clearance_request_date": null,
+                  "user": {
+                      "id": 3,
+                      "name": "mouaz alkhateeb",
+                      "image": "http://127.0.0.1:8000/employees/2023-08-27-Employee-8.jpg",
+                      "position": null
+                  }
+              }
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/reject_deposit
+    metadata:
+      groupName: Deposits
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Reject Deposit'
+      description: |-
+        This endpoint is used to reject a deposit. Employees can access this API to rejecte their deposits. The status will be set to 1, where:
+        - `1`: approved.
+        - `2`: rejected.
+        - `3`: pending status.
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      deposit_id:
+        name: deposit_id
+        description: 'Must Be Exists In deposits Table'
+        required: true
+        example: 12
+        type: integer
+        enumValues: []
+        custom: []
+      reason_reject:
+        name: reason_reject
+        description: 'The reject reason for the deposit Custom'
+        required: true
+        example: 'Without Any Reason.'
+        type: string
+        enumValues: []
+        custom: []
+    cleanBodyParameters:
+      deposit_id: 12
+      reason_reject: 'Without Any Reason.'
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+              "data": {
+                  "id": 6,
+                  "type": 3,
+                  "status": 2,
+                  "extra_status": null,
+                  "serial_mobile_number": 125815,
+                  "mobile_color": "red",
+                  "mobile_type": "samsung",
+                  "mobile_sim": 5422,
+                  "mobile_image": "http://127.0.0.1:8000/employees_deposits/2023-08-28-EmployeeDeposit-310.jpg",
+                  "reason_reject": "Without Any Reason",
+                  "reason_clearance_reject": null,
+                  "deposit_request_date": "2023-08-28",
+                  "clearance_request_date": null,
+                  "user": {
+                      "id": 3,
+                      "name": "mouaz alkhateeb",
+                      "image": "http://127.0.0.1:8000/employees/2023-08-27-Employee-8.jpg",
+                      "position": null
+                  }
+              }
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - PUT
+    uri: 'api/clearance_request/{id}'
+    metadata:
+      groupName: Deposits
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Clearance Request'
+      description: |-
+        This endpoint is used to Clearance Request. Employees can access this API. The extra status will be set to 4, where:
+        - `4`: up paid.
+        - `5`: paid.
+        - `6`: un paid rejected status Custom Example:4.
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the deposit. Must exist in the deposits table.'
+        required: true
+        example: 7
+        type: integer
+        enumValues: []
+        custom: []
+    cleanUrlParameters:
+      id: 7
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+              "data": {
+                  "id": 6,
+                  "type": 3,
+                  "status": 1,
+                  "extra_status": 4,
+                  "serial_mobile_number": 125815,
+                  "mobile_color": "red",
+                  "mobile_type": "samsung",
+                  "mobile_sim": 5422,
+                  "mobile_image": "http://127.0.0.1:8000/employees_deposits/2023-08-28-EmployeeDeposit-310.jpg",
+                  "reason_reject": null,
+                  "reason_clearance_reject": null,
+                  "deposit_request_date": "2023-08-28",
+                  "clearance_request_date": "2023-08-30",
+                  "user": {
+                      "id": 3,
+                      "name": "mouaz alkhateeb",
+                      "image": "http://127.0.0.1:8000/employees/2023-08-27-Employee-8.jpg",
+                      "position": null
+                  }
+              }
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - PUT
+    uri: 'api/approve_clearance_request/{id}'
+    metadata:
+      groupName: Deposits
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Approve Clearance Request'
+      description: |-
+        This endpoint is used to Approve Clearance Request. Admin Or Hr can access this API to accept Clearance Request Deposits. The extra status will be set to 5, where:
+        - `4`: up paid.
+        - `5`: paid.
+        - `6`: un paid rejected status Custom Example:4.
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the deposit. Must exist in the deposits table.'
+        required: true
+        example: 7
+        type: integer
+        enumValues: []
+        custom: []
+    cleanUrlParameters:
+      id: 7
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+              "data": {
+                  "id": 6,
+                  "type": 3,
+                  "status": 1,
+                  "extra_status": 5,
+                  "serial_mobile_number": 125815,
+                  "mobile_color": "red",
+                  "mobile_type": "samsung",
+                  "mobile_sim": 5422,
+                  "mobile_image": "http://127.0.0.1:8000/employees_deposits/2023-08-28-EmployeeDeposit-310.jpg",
+                  "reason_reject": null,
+                  "reason_clearance_reject": null,
+                  "deposit_request_date": "2023-08-28",
+                  "clearance_request_date": "2023-08-30",
+                  "user": {
+                      "id": 3,
+                      "name": "mouaz alkhateeb",
+                      "image": "http://127.0.0.1:8000/employees/2023-08-27-Employee-8.jpg",
+                      "position": null
+                  }
+              }
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/reject_clearance_request
+    metadata:
+      groupName: Deposits
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Reject Clearance Request'
+      description: |-
+        This endpoint is used to Reject Clearance Request. Admin Or Hr can access this API to Reject Clearance Request Deposits. The extra status will be set to 6, where:
+        - `4`: up paid.
+        - `5`: paid.
+        - `6`: un paid rejected status Custom Example:4.
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the deposit. Must exist in the deposits table.'
+        required: true
+        example: 11
+        type: integer
+        enumValues: []
+        custom: []
+    cleanUrlParameters:
+      id: 11
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      deposit_id:
+        name: deposit_id
+        description: 'Must Be Exists In deposits Table'
+        required: true
+        example: 11
+        type: integer
+        enumValues: []
+        custom: []
+      reason_clearance_reject:
+        name: reason_clearance_reject
+        description: ''
+        required: true
+        example: ea
+        type: string
+        enumValues: []
+        custom: []
+      reason_reject:
+        name: reason_reject
+        description: 'The reject reason for the deposit Custom'
+        required: true
+        example: 'Reject Clearance Request Without Any Reason.'
+        type: string
+        enumValues: []
+        custom: []
+    cleanBodyParameters:
+      deposit_id: 11
+      reason_clearance_reject: ea
+      reason_reject: 'Reject Clearance Request Without Any Reason.'
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+              "data": {
+                  "id": 6,
+                  "type": 3,
+                  "status": 1,
+                  "extra_status": 6,
+                  "serial_mobile_number": 125815,
+                  "mobile_color": "red",
+                  "mobile_type": "samsung",
+                  "mobile_sim": 5422,
+                  "mobile_image": "http://127.0.0.1:8000/employees_deposits/2023-08-28-EmployeeDeposit-310.jpg",
+                  "reason_reject": null,
+                  "reason_clearance_reject": "Reject Clearance Request Without Any Reason",
+                  "user": {
+                      "id": 3,
+                      "name": "mouaz alkhateeb",
+                      "image": "http://127.0.0.1:8000/employees/2023-08-27-Employee-8.jpg",
+                      "position": null
+                  }
+              }
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: api/my_deposits
+    metadata:
+      groupName: Deposits
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'My Deposits'
+      description: 'This endpoint displays the deposits specific to the authenticated employee. Only deposits with a status of 3 (pending) will be show.'
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+              "data": [
+                  {
+                      "id": 6,
+                      "type": 3,
+                      "status": 3,
+                      "extra_status": null,
+                      "serial_mobile_number": 125815,
+                      "mobile_color": "red",
+                      "mobile_type": "samsung",
+                      "mobile_sim": 5422,
+                      "mobile_image": "http://127.0.0.1:8000/employees_deposits/2023-08-28-EmployeeDeposit-310.jpg",
+                      "reason_reject": null,
+                      "reason_clearance_reject": null,
+                      "deposit_request_date": "2023-08-28",
+                      "clearance_request_date": "2023-08-30",
+                  }
+              ]
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: api/list_of_deposits
+    metadata:
+      groupName: Deposits
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'List of Deposits'
+      description: 'This endpoint is used to retrieve a list of deposits that can be accessed by the company, admins, and HR.'
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters:
+      status:
+        name: status
+        description: 'optional Filter the deposits by status. Possible values: 1 (approved), 2 (rejected), 3 (pending) Custom'
+        required: false
+        example: 2
+        type: integer
+        enumValues: []
+        custom: []
+    cleanQueryParameters:
+      status: 2
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+              "data": [
+                  {
+                      "id": 6,
+                      "type": 3,
+                      "status": 3,
+                      "extra_status": null,
+                      "serial_mobile_number": 125815,
+                      "mobile_color": "red",
+                      "mobile_type": "samsung",
+                      "mobile_sim": 5422,
+                      "mobile_image": "http://127.0.0.1:8000/employees_deposits/2023-08-28-EmployeeDeposit-310.jpg",
+                      "reason_reject": null,
+                      "reason_clearance_reject": null,
+                      "deposit_request_date": "2023-08-28",
+                      "clearance_request_date": "2023-08-30",
+                      "user": {
+                          "id": 3,
+                          "name": "mouaz alkhateeb",
+                          "image": "http://127.0.0.1:8000/employees/2023-08-27-Employee-8.jpg",
+
+                          "position": null
+                      }
+                  },
+                  {
+                      "id": 7,
+                      "type": 1,
+                      "status": 2,
+                      "extra_status": null,
+                      "car_number": "0101",
+                      "car_model": "bmw3",
+                      "manufacturing_year": "2023",
+                      "mechanic_card_number": "2348",
+                      "car_image": "http://127.0.0.1:8000/employees_deposits/2023-08-28-EmployeeDeposit-3face.jpeg",
+                      "reason_reject": "No Reason ",
+                      "reason_clearance_reject": null,
+                      "deposit_request_date": "2023-08-28",
+                      "clearance_request_date": "2023-08-30",
+                      "user": {
+                          "id": 3,
+                          "name": "mouaz alkhateeb",
+                          "image": "http://127.0.0.1:8000/employees/2023-08-27-Employee-8.jpg",
+                          "position": null
+                      }
+                  }
+              ]
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: api/list_of_clearance_deposits
+    metadata:
+      groupName: Deposits
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'List of Clearance Deposits'
+      description: 'This endpoint is used to retrieve a list of Clearance Deposits that can be accessed by the company, admins, and HR And Extra Status of Deposit Will Be 4 (up paid).'
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+              "data": [
+                  {
+                      "id": 6,
+                      "type": 3,
+                      "status": 1,
+                      "extra_status": 4,
+                      "serial_mobile_number": 125815,
+                      "mobile_color": "red",
+                      "mobile_type": "samsung",
+                      "mobile_sim": 5422,
+                      "mobile_image": "http://127.0.0.1:8000/employees_deposits/2023-08-28-EmployeeDeposit-310.jpg",
+                      "reason_reject": null,
+                      "reason_clearance_reject": null,
+                      "deposit_request_date": "2023-08-28",
+                      "clearance_request_date": "2023-08-30",
+                      "user": {
+                          "id": 3,
+                          "name": "mouaz alkhateeb",
+                          "image": "http://127.0.0.1:8000/employees/2023-08-27-Employee-8.jpg",
+
+                          "position": null
+                      }
+                  },
+                  {
+                      "id": 7,
+                      "type": 1,
+                      "status": 1,
+                      "extra_status": 4,
+                      "car_number": "0101",
+                      "car_model": "bmw3",
+                      "manufacturing_year": "2023",
+                      "mechanic_card_number": "2348",
+                      "car_image": "http://127.0.0.1:8000/employees_deposits/2023-08-28-EmployeeDeposit-3face.jpeg",
+                     "reason_reject": null,
+                      "reason_clearance_reject": null,
+                      "deposit_request_date": "2023-08-28",
+                      "clearance_request_date": "2023-08-30",
+                      "user": {
+                          "id": 3,
+                          "name": "mouaz alkhateeb",
+                          "image": "http://127.0.0.1:8000/employees/2023-08-27-Employee-8.jpg",
+                          "position": null
+                      }
+                  }
+              ]
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: api/my_approved_deposits
+    metadata:
+      groupName: Deposits
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Show My Approved Deposits List'
+      description: 'This endpoint is used to display the list of approved deposits for the authenticated employee. Only authenticated employees can access this API. It will show the approved deposits specific to the authenticated employee.'
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+              "data": [
+                  {
+                      "id": 1,
+                      "type": 3,
+                      "status": 1,
+                      "extra_status": null,
+                      "serial_mobile_number": "01hg23",
+                      "mobile_color": "red",
+                      "mobile_type": "samsung201",
+                      "mobile_sim": "5422ll",
+                      "mobile_image": "http://127.0.0.1:8000/employees_deposits/2023-09-10-EmployeeDeposit-1144.jpg",
+                      "reason_reject": null,
+                      "reason_clearance_reject": null,
+                      "deposit_request_date": "2023-09-10",
+                      "clearance_request_date": null
+                  },
+                  {
+                      "id": 2,
+                      "type": 2,
+                      "status": 1,
+                      "extra_status": null,
+                      "laptop_type": "asus",
+                      "Serial_laptop_number": "2010",
+                      "laptop_color": "blue",
+                      "laptop_image": "http://127.0.0.1:8000/employees_deposits/2023-09-10-EmployeeDeposit-119.jpeg",
+                      "reason_reject": null,
+                      "reason_clearance_reject": null,
+                      "deposit_request_date": "2023-09-10",
+                      "clearance_request_date": null
+                  }
+              ]
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []

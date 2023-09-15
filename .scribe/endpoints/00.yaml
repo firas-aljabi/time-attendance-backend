@@ -1,0 +1,216 @@
+name: Authentication
+description: |-
+
+  APIs for managing Authentication
+endpoints:
+  -
+    httpMethods:
+      - POST
+    uri: api/login
+    metadata:
+      groupName: Authentication
+      groupDescription: |-
+
+        APIs for managing Authentication
+      subgroup: ''
+      subgroupDescription: ''
+      title: Login
+      description: 'This endpoint is used to login a user to the system.'
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      email:
+        name: email
+        description: ''
+        required: true
+        example: mouaz@gmail.com
+        type: string
+        enumValues: []
+        custom: []
+      password:
+        name: password
+        description: ''
+        required: true
+        example: '0123456789'
+        type: string
+        enumValues: []
+        custom: []
+    cleanBodyParameters:
+      email: mouaz@gmail.com
+      password: '0123456789'
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+          "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNjkzMDM2MzM5LCJleHAiOjE2OTMwMzk5MzksIm5iZiI6MTY5MzAzNjMzOSwianRpIjoic0JtVWZMcVdiTjNBeVVQUCIsInN1YiI6IjIiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.LxUrVJ_gdDor8mju1o5Db43RM1c0yLlEYDpVV0RwdH8",
+          "user": {
+          "id": 2,
+          "name": "Firas Jabi",
+          "email": "firassaljabi1232@gmail.com",
+          "work_email": "firassaljabi1237@goma.com",
+          "email_verified_at": null,
+          "mobile": "0969040342",
+          "phone": "0935463111",
+          "serial_number": "00011",
+          "nationalitie_id": 2,
+          "company_id": 1,
+          "birthday_date": "1998-11-26",
+          "material_status": 2,
+          "gender": 1,
+          "address": "Damascus",
+          "guarantor": null,
+          "branch": "syria branch",
+          "departement": null,
+          "position": null,
+          "type": 2,
+          "status": 1,
+          "skills": null,
+          "start_job_contract": null,
+          "end_job_contract": null,
+          "image": null,
+          "id_photo": null,
+          "biography": null,
+          "employee_sponsorship": null,
+          "end_employee_sponsorship": null,
+          "employee_residence": null,
+          "end_employee_residence": null,
+          "visa": null,
+          "end_visa": null,
+          "passport": null,
+          "end_passport": null,
+          "municipal_card": null,
+          "end_municipal_card": null,
+          "health_insurance": null,
+          "end_health_insurance": null,
+          "basic_salary": "0.00",
+          "permission_to_entry": 0,
+          "entry_time": null,
+          "permission_to_leave": 0,
+          "leave_time": null,
+          "number_of_working_hours": 0,
+          "code": null,
+          "is_verifed": false,
+          "expired_at": null,
+          "created_at": "2023-08-26T07:01:20.000000Z",
+          "updated_at": "2023-08-26T07:01:20.000000Z",
+          "deleted_at": null
+          }
+          }
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 401
+        content: |-
+          {
+          "message": "Invalid login credentials"
+          }
+        headers: []
+        description: 'Failed Login'
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/logout
+    metadata:
+      groupName: Authentication
+      groupDescription: |-
+
+        APIs for managing Authentication
+      subgroup: ''
+      subgroupDescription: ''
+      title: Logout
+      description: 'This endpoint is used to log out a user from the system.'
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+          "message": "User successfully signed out"
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/verify_code
+    metadata:
+      groupName: Authentication
+      groupDescription: |-
+
+        APIs for managing Authentication
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Verfiy Code'
+      description: 'This endpoint is used to Verfiy Code for user in the system.'
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      code:
+        name: code
+        description: 'Should Check Your Email Inbox Custom'
+        required: true
+        example: 2587.0
+        type: number
+        enumValues: []
+        custom: []
+    cleanBodyParameters:
+      code: 2587.0
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+          "message": "Success Verfiy Code..!!"
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []

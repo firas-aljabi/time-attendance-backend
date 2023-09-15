@@ -1,0 +1,328 @@
+name: Holidays
+description: ''
+endpoints:
+  -
+    httpMethods:
+      - POST
+    uri: api/create_weekly_holiday
+    metadata:
+      groupName: Holidays
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Create Weekly Holiday'
+      description: 'This endpoint is used to Create Weekly Holiday and  Admin Or Hr Can Access To This Api.'
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      days:
+        name: days
+        description: 'Must be at least 1. Must not be greater than 7.'
+        required: true
+        example:
+          - 4
+        type: 'integer[]'
+        enumValues: []
+        custom: []
+      day:
+        name: day
+        description: 'Bust Be From 1 to 7 Custom'
+        required: true
+        example: 5
+        type: integer
+        enumValues: []
+        custom: []
+    cleanBodyParameters:
+      days:
+        - 4
+      day: 5
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+            "data": {
+                 "id": 1,
+                 "day": 6,
+                 "day_name": "Friday"
+                 }
+            }
+        headers: []
+        description: 'Create Weekly Holiday'
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/create_annual_holiday
+    metadata:
+      groupName: Holidays
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Create Annual Holiday'
+      description: 'This endpoint is used to Create Annual Holiday and  Admin Or Hr Can Access To This Api.'
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      holiday_name:
+        name: holiday_name
+        description: Custom
+        required: false
+        example: 'Eid Aladha'
+        type: string
+        enumValues: []
+        custom: []
+      start_date:
+        name: start_date
+        description: Custom
+        required: false
+        example: '2023-08-27'
+        type: date
+        enumValues: []
+        custom: []
+      end_date:
+        name: end_date
+        description: Custom
+        required: false
+        example: '2023-08-29'
+        type: date
+        enumValues: []
+        custom: []
+    cleanBodyParameters:
+      holiday_name: 'Eid Aladha'
+      start_date: '2023-08-27'
+      end_date: '2023-08-29'
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+          "data": {
+          "id": 3,
+          "holiday_name": "Eid Aladha",
+          "start_date": "2023-06-01",
+          "end_date": "2023-06-04"
+          }
+        headers: []
+        description: 'Create Annual Holiday'
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/update_annual_holiday
+    metadata:
+      groupName: Holidays
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Update Annual Holiday'
+      description: 'This endpoint is used to Upadate Annual Holiday and  Admin Or Hr Can Access To This Api.'
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      holiday_id:
+        name: holiday_id
+        description: 'Must Be Exists In Holidays Table'
+        required: true
+        example: 16
+        type: integer
+        enumValues: []
+        custom: []
+      holiday_name:
+        name: holiday_name
+        description: Custom
+        required: false
+        example: 'Eid Aladha'
+        type: string
+        enumValues: []
+        custom: []
+      start_date:
+        name: start_date
+        description: Custom
+        required: false
+        example: '2023-08-27'
+        type: date
+        enumValues: []
+        custom: []
+      end_date:
+        name: end_date
+        description: Custom
+        required: false
+        example: '2023-08-29'
+        type: date
+        enumValues: []
+        custom: []
+    cleanBodyParameters:
+      holiday_id: 16
+      holiday_name: 'Eid Aladha'
+      start_date: '2023-08-27'
+      end_date: '2023-08-29'
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+          "data": {
+          "id": 3,
+          "holiday_name": "Eid Aladha almobarak",
+          "start_date": "2023-06-03",
+          "end_date": "2023-06-06"
+          }
+        headers: []
+        description: 'Update Annual Holiday'
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: api/list_of_holidays
+    metadata:
+      groupName: Holidays
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'List Of Holidays'
+      description: 'This endpoint is used to retrieve the list of holidays in the company. Only admins or HR personnel can access this API.'
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+              "data": [
+                  {
+                      "id": 8,
+                      "type": 1,
+                      "day": 6,
+                      "day_name": "Friday"
+                  },
+                  {
+                      "id": 10,
+                      "type": 2,
+                      "holiday_name": "Eid Aladha",
+                      "start_date": "2023-08-04",
+                      "end_date": "2023-08-06"
+                  },
+                  {
+                      "id": 11,
+                      "type": 1,
+                      "day": 4,
+                      "day_name": "Wednesday"
+                  },
+                  {
+                      "id": 12,
+                      "type": 1,
+                      "day": 6,
+                      "day_name": "Friday"
+                  }
+              ]
+          }
+        headers: []
+        description: 'Show Holidays'
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - DELETE
+    uri: 'api/holiday/{id}'
+    metadata:
+      groupName: Holidays
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Delete Holiday'
+      description: 'This endpoint is used to delete a holiday and requires authentication with Admin access to access this API.'
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the holiday to be deleted. It must exist in the Holidays table.'
+        required: true
+        example: 13
+        type: integer
+        enumValues: []
+        custom: []
+    cleanUrlParameters:
+      id: 13
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+            "message": "Holiday Deleted..!"
+          }
+        headers: []
+        description: 'Delete Holiday'
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
